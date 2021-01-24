@@ -18,6 +18,7 @@ import Battery
 import Sensors
 import GPU
 import Fans
+import Sparkle
 
 var store: Store = Store()
 let updater = macAppUpdater(user: "exelban", repo: "stats")
@@ -52,6 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         modules.forEach{ $0.mount() }
         
         self.settingsWindow.setModules()
+        
+        SUUpdater.init(for: Bundle.init(for: AppDelegate.self))
         
         self.parseVersion()
         self.defaultValues()

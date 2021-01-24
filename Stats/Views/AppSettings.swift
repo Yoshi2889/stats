@@ -12,6 +12,7 @@
 import Cocoa
 import StatsKit
 import os.log
+import Sparkle
 
 class ApplicationSettings: NSScrollView {
     private var updateIntervalValue: String {
@@ -30,7 +31,7 @@ class ApplicationSettings: NSScrollView {
     }
     
     private var updateButton: NSButton? = nil
-    private let updateWindow: UpdateWindow = UpdateWindow()
+    private let updater = SUUpdater.init(for: Bundle.init(for: AppDelegate.self))
     
     init() {
         super.init(frame: NSRect(
@@ -81,7 +82,7 @@ class ApplicationSettings: NSScrollView {
     }
     
     private func versions() -> NSView {
-        let view: NSView = NSView(frame: NSRect(x: 0, y: 0, width: self.frame.width, height: 280))
+        let view: NSView = NSView(frame: NSRect(x: 0, y: 0, width: self.frame.width, height: 250))
         
         let h: CGFloat = 120+60+18
         let container: NSGridView = NSGridView(frame: NSRect(x: 0, y: (view.frame.height-h)/2, width: self.frame.width, height: h))
@@ -142,7 +143,8 @@ class ApplicationSettings: NSScrollView {
         let separator = NSBox()
         separator.boxType = .separator
         
-        grid.addRow(with: self.updates())
+        grid.addRow(with: self.automaticUpdates())
+        grid.addRow(with: self.automaticallyDownloadUpdates())
         grid.addRow(with: self.temperature())
         grid.addRow(with: self.dockIcon())
         grid.addRow(with: self.startAtLogin())
@@ -170,13 +172,22 @@ class ApplicationSettings: NSScrollView {
     
     // MARK: - Views
     
-    private func updates() -> [NSView] {
+    private func automaticUpdates() -> [NSView] {
         return [
-            self.titleView(LocalizedString("Check for updates")),
-            SelectView(
-                action: #selector(self.toggleUpdateInterval),
-                items: AppUpdateIntervals,
-                selected: self.updateIntervalValue
+            self.titleView(LocalizedString("Check for updates automatically")),
+            self.toggleView(
+                action: #selector(self.toggleAutomaticUpdateChecks),
+                state: updater?.automaticallyChecksForUpdates ?? false
+            )
+        ]
+    }
+    
+    private func automaticallyDownloadUpdates() -> [NSView] {
+        return [
+            self.titleView(LocalizedString("Download updates automatically")),
+            self.toggleView(
+                action: #selector(self.toggleAutomaticUpdateDownloads),
+                state: updater?.automaticallyDownloadsUpdates ?? false
             )
         ]
     }
@@ -251,31 +262,29 @@ class ApplicationSettings: NSScrollView {
     }
     
     @objc func updateAction(_ sender: NSObject) {
-        updater.check() { result, error in
-            if error != nil {
-                os_log(.error, log: log, "error updater.check(): %s", "\(error!.localizedDescription)")
-                return
-            }
-            
-            guard error == nil, let version: version_s = result else {
-                os_log(.error, log: log, "download error(): %s", "\(error!.localizedDescription)")
-                return
-            }
-            
-            DispatchQueue.main.async(execute: {
-                self.updateWindow.open(version)
-                return
-            })
-        }
+        updater?.checkForUpdates(sender)
     }
     
-    @objc private func toggleUpdateInterval(_ sender: NSMenuItem) {
-        guard let key = sender.representedObject as? String else {
-            return
+    @objc private func toggleAutomaticUpdateChecks(_ sender: NSControl) {
+        var state: NSControl.StateValue? = nil
+        if #available(OSX 11.0, *) {
+            state = sender is NSSwitch ? (sender as! NSSwitch).state: nil
+        } else {
+            state = sender is NSButton ? (sender as! NSButton).state: nil
         }
         
-        store.set(key: "update-interval", value: key)
-        NotificationCenter.default.post(name: .changeCronInterval, object: nil, userInfo: nil)
+        updater?.automaticallyChecksForUpdates = state! == NSControl.StateValue.on
+    }
+    
+    @objc private func toggleAutomaticUpdateDownloads(_ sender: NSControl) {
+        var state: NSControl.StateValue? = nil
+        if #available(OSX 11.0, *) {
+            state = sender is NSSwitch ? (sender as! NSSwitch).state: nil
+        } else {
+            state = sender is NSButton ? (sender as! NSButton).state: nil
+        }
+        
+        updater?.automaticallyDownloadsUpdates = state! == NSControl.StateValue.on
     }
     
     @objc private func toggleTemperatureUnits(_ sender: NSMenuItem) {

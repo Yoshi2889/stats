@@ -82,7 +82,6 @@
 		9A97CF0C2537351800742D8F /* StatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0C82DA24460F7200FAE3D4 /* StatsKit.framework */; };
 		9A9B25BB24F7DE2B00C3CCE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A9B25BD24F7DE2B00C3CCE6 /* Localizable.strings */; };
 		9A9D728A24471FAE005CF997 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9D728924471FAE005CF997 /* SMC.swift */; };
-		9A9EA9452476D34500E3B883 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EA9442476D34500E3B883 /* Update.swift */; };
 		9AA4A00A2443656D00ECCF07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA4A0092443656D00ECCF07 /* Assets.xcassets */; };
 		9AA64260244B274200416A33 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6425F244B274200416A33 /* popup.swift */; };
 		9AA64264244B94F300416A33 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA64263244B94F300416A33 /* LineChart.swift */; };
@@ -124,6 +123,8 @@
 		9AF9EE0F2464875F005D2270 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9EE0E2464875F005D2270 /* main.swift */; };
 		9AF9EE1124648ADC005D2270 /* readers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9EE1024648ADC005D2270 /* readers.swift */; };
 		9AF9EE1424649BAD005D2270 /* ModuleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AABEADD243FB13500668CB0 /* ModuleKit.framework */; };
+		CDA877A925BDF14700E78C23 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA877A725BDF13D00E78C23 /* Sparkle.framework */; };
+		CDA877AA25BDF14700E78C23 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDA877A725BDF13D00E78C23 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +326,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CDA877AA25BDF14700E78C23 /* Sparkle.framework in Embed Frameworks */,
 				9AF9EE0A24648751005D2270 /* Disk.framework in Embed Frameworks */,
 				9A81C75E2449A41400825D92 /* RAM.framework in Embed Frameworks */,
 				9AE29ADD249A50350071B02D /* Sensors.framework in Embed Frameworks */,
@@ -446,7 +448,6 @@
 		9A998CD922A199970087ADE7 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		9A9B25BC24F7DE2B00C3CCE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A9D728924471FAE005CF997 /* SMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMC.swift; sourceTree = "<group>"; };
-		9A9EA9442476D34500E3B883 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		9AA4A0092443656D00ECCF07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AA6425F244B274200416A33 /* popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		9AA64263244B94F300416A33 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -485,6 +486,7 @@
 		BB9E59E725BB5F5E004AED95 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C904AECF255939DB004A9EBC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CBF35F8F258CF80000B2BA41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDA877A725BDF13D00E78C23 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		F8A38F83253303A8006D4D81 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FCBD9253255C7D9900E1621A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -501,6 +503,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA877A925BDF14700E78C23 /* Sparkle.framework in Frameworks */,
 				9AF9EE0924648751005D2270 /* Disk.framework in Frameworks */,
 				9AABEAE4243FB13500668CB0 /* ModuleKit.framework in Frameworks */,
 				9AE29ADC249A50350071B02D /* Sensors.framework in Frameworks */,
@@ -609,16 +612,16 @@
 		9A0C82DB24460F7200FAE3D4 /* StatsKit */ = {
 			isa = PBXGroup;
 			children = (
-				9A7D0CB62444C2C800B09070 /* SystemKit.swift */,
-				9A0C82D124460DFF00FAE3D4 /* updater.swift */,
-				9A65492224407EA600E30B74 /* store.swift */,
-				9A0C82D324460E4400FAE3D4 /* launchAtLogin.swift */,
+				9A81C76F2449B8D500825D92 /* Charts.swift */,
 				9A654920244074B500E30B74 /* extensions.swift */,
 				9A1D5E4A25235C8100B82BFC /* helpers.swift */,
 				9A0C82DD24460F7200FAE3D4 /* Info.plist */,
+				9A0C82D324460E4400FAE3D4 /* launchAtLogin.swift */,
 				9A9D728924471FAE005CF997 /* SMC.swift */,
-				9A81C76F2449B8D500825D92 /* Charts.swift */,
+				9A65492224407EA600E30B74 /* store.swift */,
+				9A7D0CB62444C2C800B09070 /* SystemKit.swift */,
 				9AECEF3A24ACF7BA00DB95D4 /* updater.sh */,
+				9A0C82D124460DFF00FAE3D4 /* updater.swift */,
 			);
 			path = StatsKit;
 			sourceTree = "<group>";
@@ -723,7 +726,6 @@
 				9A81C74C24499C7000825D92 /* Settings.swift */,
 				9A045EB62594F8D100ED58F2 /* Dashboard.swift */,
 				9A81C74B24499C7000825D92 /* AppSettings.swift */,
-				9A9EA9442476D34500E3B883 /* Update.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -786,6 +788,7 @@
 				9A97CE2A25371B2300742D8F /* IntelPowerGadget.framework */,
 				9A998CD922A199970087ADE7 /* ServiceManagement.framework */,
 				9A998CD722A199920087ADE7 /* Cocoa.framework */,
+				CDA877A725BDF13D00E78C23 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1438,7 +1441,6 @@
 			files = (
 				9AABEB7E243FDEF100668CB0 /* main.swift in Sources */,
 				9AABEB7A243FD26200668CB0 /* AppDelegate.swift in Sources */,
-				9A9EA9452476D34500E3B883 /* Update.swift in Sources */,
 				9A045EB72594F8D100ED58F2 /* Dashboard.swift in Sources */,
 				9A81C74E24499C7000825D92 /* Settings.swift in Sources */,
 				9A81C74D24499C7000825D92 /* AppSettings.swift in Sources */,
@@ -1947,7 +1949,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 180;
-				DEVELOPMENT_TEAM = RP2S87B72W;
+				DEVELOPMENT_TEAM = TF97RG3V9E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1980,7 +1982,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 180;
-				DEVELOPMENT_TEAM = RP2S87B72W;
+				DEVELOPMENT_TEAM = TF97RG3V9E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2012,7 +2014,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = RP2S87B72W;
+				DEVELOPMENT_TEAM = TF97RG3V9E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LaunchAtLogin/Info.plist;
@@ -2037,7 +2039,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = RP2S87B72W;
+				DEVELOPMENT_TEAM = TF97RG3V9E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LaunchAtLogin/Info.plist;
